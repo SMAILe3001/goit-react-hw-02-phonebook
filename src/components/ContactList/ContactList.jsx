@@ -1,19 +1,13 @@
-import { Component } from 'react';
-
-export class ContactList extends Component {
-  state = {
-    contacts: this.props.contactList,
-  };
-
-  render() {
-    return (
-      <section>
-        <ul>
-          {this.state.contacts.map(contact => (
-            <li key={contact.id}>{contact.name}</li>
-          ))}
-        </ul>
-      </section>
-    );
-  }
+export function ContactList({ contactList }) {
+  return (
+    <section>
+      <ul>
+        {contactList.map(contact => (
+          <li key={contact.id}>
+            {contact.name}: {contact.number}
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
 }

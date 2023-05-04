@@ -1,4 +1,12 @@
 import { Component } from 'react';
+import {
+  Form,
+  LabelContain,
+  Label,
+  Button,
+  LabelTitle,
+  Input,
+} from './ContactForm.styled';
 
 export class ContactForm extends Component {
   state = {
@@ -27,11 +35,11 @@ export class ContactForm extends Component {
 
   render() {
     return (
-      <section>
-        <form onSubmit={this.addContactPhonebook}>
-          <label>
-            Name
-            <input
+      <Form onSubmit={this.addContactPhonebook}>
+        <LabelContain>
+          <Label>
+            <LabelTitle>Name</LabelTitle>
+            <Input
               type="text"
               name="name"
               // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -40,10 +48,10 @@ export class ContactForm extends Component {
               value={this.state.name}
               onChange={this.handelInputChange}
             />
-          </label>
-          <label>
-            Phonebook
-            <input
+          </Label>
+          <Label>
+            <LabelTitle>Phonebook</LabelTitle>
+            <Input
               type="tel"
               name="number"
               // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -52,10 +60,10 @@ export class ContactForm extends Component {
               value={this.state.number}
               onChange={this.handelInputChange}
             />
-          </label>
-          <button type="submit">Add contact</button>
-        </form>
-      </section>
+          </Label>
+        </LabelContain>
+        <Button type="submit">Add contact</Button>
+      </Form>
     );
   }
 }
