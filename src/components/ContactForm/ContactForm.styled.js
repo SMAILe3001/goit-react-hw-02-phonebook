@@ -5,10 +5,15 @@ export const Form = styled.form`
 `;
 
 export const LabelContain = styled.div`
+  border-radius: 7px;
+  border: 2px solid rgb(132 156 231);
+  padding: 4px;
   display: block;
 `;
 
-export const Label = styled.label``;
+export const Label = styled.label`
+  margin-left: 10px;
+`;
 
 export const Button = styled.button`
   background-color: rgb(132 156 231);
@@ -31,4 +36,6 @@ export const Input = styled.input`
   border: 2px solid rgb(132 156 231);
   display: block;
   with: 100%;
+  font-size: 24px;
+  padding-left: 8px;
 `;

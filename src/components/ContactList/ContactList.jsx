@@ -1,13 +1,18 @@
+import { List, Item } from './ContactList.styled';
+
 export function ContactList({ contactList }) {
   return (
     <section>
-      <ul>
+      <List>
         {contactList.map(contact => (
-          <li key={contact.id}>
-            {contact.name}: {contact.number}
-          </li>
+          <Item key={contact.id}>
+            <span>
+              {contact.name}: {contact.number}
+              <button type="button">delete</button>
+            </span>
+          </Item>
         ))}
-      </ul>
+      </List>
     </section>
   );
 }
