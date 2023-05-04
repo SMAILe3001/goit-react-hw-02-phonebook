@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import { nanoid } from 'nanoid';
 
 export class ContactList extends Component {
   state = {
@@ -11,7 +10,7 @@ export class ContactList extends Component {
       <section>
         <ul>
           {this.state.contacts.map(contact => (
-            <li key={nanoid()}>{contact.name}</li>
+            <li key={contact.id}>{contact.name}</li>
           ))}
         </ul>
       </section>

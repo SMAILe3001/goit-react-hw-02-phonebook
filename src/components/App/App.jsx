@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { nanoid } from 'nanoid';
 import { ContactForm } from '../ContactForm';
 import { Filter } from '../Filter';
 import { ContactList } from '../ContactList';
@@ -7,12 +8,16 @@ import { Container } from './App.styled';
 export class App extends Component {
   state = {
     contacts: contactListDemo,
-    name: '',
-    number: '',
   };
 
-  formSubmitHandler = data => {
-    console.log(data);
+  addContact = data => {
+    const contact = { id: nanoid(), ...data };
+
+    let ffd = this.setState(prevState => ({
+      contacts: [contact, ...prevState.contacts],
+    }));
+
+    console.log(ffd);
   };
 
   render() {
@@ -20,7 +25,7 @@ export class App extends Component {
       <Container>
         <div>
           <h1>Phonebook</h1>
-          <ContactForm onSubmit={this.formSubmitHandler} />
+          <ContactForm onSubmit={this.addContact} />
           <h2>Contacts</h2>
           <Filter />
           <ContactList contactList={this.state.contacts} />

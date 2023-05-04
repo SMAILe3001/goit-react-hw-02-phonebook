@@ -15,10 +15,10 @@ export class ContactForm extends Component {
     e.preventDefault();
 
     this.props.onSubmit(this.state);
-    this.reset();
+    this.resetForm();
   };
 
-  reset = () => {
+  resetForm = () => {
     this.setState({
       name: '',
       number: '',
