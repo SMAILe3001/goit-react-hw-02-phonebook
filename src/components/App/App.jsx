@@ -61,7 +61,7 @@ export class App extends Component {
   };
 
   alarmAddContact = name => {
-    Notify.warning(`Contact ${name} add.`);
+    Notify.success(`Contact ${name} add.`);
   };
 
   alarmDeleteContact = id => {
