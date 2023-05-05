@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { ContactForm } from '../ContactForm';
 import { Filter } from '../Filter';
 import { ContactList } from '../ContactList';
@@ -30,12 +31,16 @@ export class App extends Component {
     this.setState(prevState => ({
       contacts: [contact, ...prevState.contacts],
     }));
+
+    this.alarmAddContact(data.name);
   };
 
   deleteContact = id => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
+
+    this.alarmDeleteContact(id);
   };
 
   filterContacts = e => {
@@ -52,7 +57,17 @@ export class App extends Component {
   };
 
   alarmDuplicatioContact = name => {
-    alert(`Rosei ${name} is already in contacts.`);
+    Notify.warning(`Rosei ${name} is already in contacts.`);
+  };
+
+  alarmAddContact = name => {
+    Notify.warning(`Contact ${name} add.`);
+  };
+
+  alarmDeleteContact = id => {
+    let object = this.state.contacts.find(elem => elem.id === id);
+
+    Notify.info(`Contact ${object.name} delit.`);
   };
 
   render() {
