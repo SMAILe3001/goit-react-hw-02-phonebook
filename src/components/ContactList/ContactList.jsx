@@ -1,18 +1,18 @@
-import { List, Item } from './ContactList.styled';
+import { List, Item, Button } from './ContactList.styled';
 
-export function ContactList({ contactList }) {
+export function ContactList({ contactList, onDeleted }) {
   return (
-    <section>
-      <List>
-        {contactList.map(contact => (
-          <Item key={contact.id}>
-            <span>
-              {contact.name}: {contact.number}
-              <button type="button">delete</button>
-            </span>
-          </Item>
-        ))}
-      </List>
-    </section>
+    <List>
+      {contactList.map(contact => (
+        <Item key={contact.id}>
+          <span>
+            {contact.name}: {contact.number}
+          </span>
+          <Button type="button" onClick={() => onDeleted(contact.id)}>
+            delete
+          </Button>
+        </Item>
+      ))}
+    </List>
   );
 }

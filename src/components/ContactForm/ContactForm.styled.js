@@ -35,7 +35,7 @@ export const Input = styled.input`
   border-radius: 7px;
   border: 2px solid rgb(132 156 231);
   display: block;
-  with: 100%;
   font-size: 24px;
   padding-left: 8px;
+  outline: none;
 `;
