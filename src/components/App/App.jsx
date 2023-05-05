@@ -57,7 +57,7 @@ export class App extends Component {
   };
 
   alarmDuplicatioContact = name => {
-    Notify.warning(`Rosei ${name} is already in contacts.`);
+    Notify.warning(`${name} is already in contacts.`);
   };
 
   alarmAddContact = name => {
